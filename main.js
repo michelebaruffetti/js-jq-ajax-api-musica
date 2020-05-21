@@ -24,7 +24,7 @@ $(document).ready(function() {
                     'titolo' : disco_corrente.title,
                     'autore' : disco_corrente.author,
                     'anno'   : disco_corrente.year,
-                    'genere' : disco_corrente.genre
+                    'genere' : disco_corrente.genre.toLowerCase()
                 };
 
                 // handlebars per html finale
@@ -46,18 +46,19 @@ $(document).ready(function() {
 
     // tentativo di select
 
-    $('#select > option').click(function(){
+    $('#select').change(function(){
         var scelta_genere = $(this).val();
         console.log(scelta_genere);
 
         // nascondo tutti gli album
-        $(".cd").hide();
+        $('.cd').hide();
 
 
-        if (scelta_genere == "all") {
+        if (scelta_genere == 'all') {
             // con all mostro tutti gli album
-            $(".cd").show();
-        } else {
+            $('.cd').show();
+        }
+        else {
             //in caso costrario uso la MEGASTRINGA e aggiungo direttamente il data.
             $(".cd[data-genere='" + scelta_genere + "']").show();
         }
