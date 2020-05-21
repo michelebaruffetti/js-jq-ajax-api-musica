@@ -6,7 +6,6 @@ $(document).ready(function() {
     // preparo la funzione per utilizzare il template
     var template_function = Handlebars.compile(template_html);
 
-
     $.ajax({
         'url' : 'https://flynn.boolean.careers/exercises/api/array/music',
         'method' : 'GET',
@@ -43,7 +42,28 @@ $(document).ready(function() {
 
 
 
-    })
+    });
+
+    // tentativo di select
+
+    $('#select > option').click(function(){
+        var scelta_genere = $(this).val();
+        console.log(scelta_genere);
+
+        // nascondo tutti gli album
+        $(".cd").hide();
+
+
+        if (scelta_genere == "all") {
+            // con all mostro tutti gli album
+            $(".cd").show();
+        } else {
+            //in caso costrario uso la MEGASTRINGA e aggiungo direttamente il data.
+            $(".cd[data-genere='" + scelta_genere + "']").show();
+        }
+
+
+    });
 
 
 
