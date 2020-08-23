@@ -44,7 +44,7 @@ $(document).ready(function() {
 
     });
 
-    // tentativo di select
+    // creazione elect
 
     $('#select').change(function(){
         var scelta_genere = $(this).val();
